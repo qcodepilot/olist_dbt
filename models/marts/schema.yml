@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: mart_gelir
+    description: "Monthly and yearly revenue analysis by payment type. (Ödeme tipine göre aylık ve yıllık gelir analizi)"
+    columns:
+      - name: year
+        description: "Order year (Sipariş yılı)"
+      - name: month
+        description: "Order month (Sipariş ayı)"
+      - name: payment_type
+        description: "Payment method used (Kullanılan ödeme yöntemi)"
+      - name: total_orders
+        description: "Number of distinct orders (Benzersiz sipariş sayısı)"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Total revenue in R$ (Toplam gelir R$ cinsinden)"
+        tests:
+          - not_null
+      - name: avg_revenue_per_order
+        description: "Average order value in R$ (Ortalama sipariş değeri R$ cinsinden)"
+
+  - name: mart_memnuniyet
+    description: "Customer satisfaction analysis by product category. (Ürün kategorisine göre müşteri memnuniyeti analizi)"
+    columns:
+      - name: product_category_name
+        description: "Product category name in Portuguese (Portekizce ürün kategori adı)"
+        tests:
+          - not_null
+      - name: avg_review_score
+        description: "Average review score 1-5 (Ortalama yorum puanı 1-5)"
+        tests:
+          - not_null
+      - name: total_reviews
+        description: "Total number of reviews (Toplam yorum sayısı)"
+        tests:
+          - not_null
+
+  - name: mart_teslimat
+    description: "Delivery performance analysis per order. (Sipariş bazında teslimat performans analizi)"
+    columns:
+      - name: order_id
+        description: "Unique order identifier (Benzersiz sipariş kimliği)"
+        tests:
+          - not_null
+          - unique
+      - name: actual_delivery_time
+        description: "Actual delivery time in days (Gerçek teslimat süresi gün cinsinden)"
+      - name: estimated_delivery_time
+        description: "Estimated delivery time in days (Tahmini teslimat süresi gün cinsinden)"
+      - name: late_delivery
+        description: "Whether order was delivered late true/false (Sipariş gecikmeli mi true/false)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['true', 'false']
