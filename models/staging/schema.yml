@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: olist
+    database: third-harbor-301722
+    schema: Olist
+    tables:
+      - name: olist_orders_dataset
+        description: "Contains all orders. Each row is one order with status,dates and customer info."
+      # Tüm siparişleri içerir. Her satır bir sipariş - durum, tarihler ve müşteri bilgisi"      
+      - name: olist_order_payments_dataset
+        description: "Contains payment details for each order including payment type and value."
+      # Her siparişin ödeme detayları - ödeme tipi ve tutarı
+      - name: olist_order_reviews_dataset
+        description: "Contains customer reviews and scores for each order."
+      # Müşteri yorumları ve puanları
+      - name: olist_order_items_dataset
+        description: "Contains details of items in each order, including product and seller information."
+      # Her siparişteki ürünlerin detayları - ürün ve satıcı bilgisi
+      - name: olist_products_dataset
+        description: "Contains product details including category and dimensions."
+        # Ürün detayları - kategori ve boyutlar
+      - name: olist_sellers_dataset
+        description: "Contains seller details including location and contact information."
+      # Satıcı detayları - konum ve iletişim bilgisi
+      - name: olist_customers_dataset
+        description: "Contains customer details including location and contact information."
+      # Müşteri detayları - konum ve iletişim bilgisi 
+      - name: olist_geolocation_dataset
+        description: "Contains geolocation data for zip codes."
+              # Posta kodları için coğrafi konum verisi
+      - name: olist_product_category_name_translation
+        description: "Contains translations of product category names from Portuguese to English."
+      # Ürün kategori isimlerinin Portekizce'den İngilizce'ye çevirileri
