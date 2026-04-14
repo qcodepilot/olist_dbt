@@ -15,7 +15,9 @@ analiz için hazır hale getirmektedir.
 
 ---
 
-## 📁 Proje Yapısı 
+## 📁 Proje Yapısı
+
+```
 olist_dbt/
 ├── models/
 │   ├── staging/     → Ham veriyi temizleme katmanı
@@ -30,15 +32,20 @@ olist_dbt/
 │       ├── mart_gelir.sql
 │       ├── mart_memnuniyet.sql
 │       └── mart_teslimat.sql
+```
+
 ---
 
+
 ## 🔄 Veri Akışı
+
+```
 Ham BigQuery Tabloları (Olist dataset)
-↓
+        ↓
 Staging Modelleri (temizleme)
-↓
+        ↓
 Mart Modelleri (iş analizleri)
----
+```
 
 ## 📦 Staging Modelleri
 
